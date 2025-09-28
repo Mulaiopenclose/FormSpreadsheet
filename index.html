@@ -20,12 +20,13 @@
 
   <p id="hasil"></p>
 
- <script>
+ 
+     <script>
   function kirimData() {
     fetch("https://script.google.com/macros/s/AKfycby3HDGCtcJEk_wOI6sKSzjR3VE9Dq29xX84pOEKoaUN2kVip5H_vfIWiDO2j9mKrfix/exec", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"  
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         a: document.getElementById("inputA").value,
@@ -35,12 +36,14 @@
     })
     .then(res => res.text())
     .then(res => document.getElementById("hasil").innerText = res)
-    .catch(err => document.getElementById("hasil").innerText = "❌ Error: " + err);
+    .catch(err => document.getElementById("hasil").innerText = "❌ Error Fetch: " + err);
   }
 </script>
 
+
 </body>
 </html>
+
 
 
 
