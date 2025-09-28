@@ -20,22 +20,27 @@
 
   <p id="hasil"></p>
 
-  <script>
-    function kirimData() {
-      fetch("https://script.google.com/macros/s/AKfycbz34GKujK4kht2o8dIWfvqjLOBarI5kBSd1y5jIZQu1fvYKlBwfvCR75vqM8ttZ5fGLqA/exec", {
-        method: "POST",
-        body: JSON.stringify({
-          a: document.getElementById("inputA").value,
-          b: document.getElementById("inputB").value,
-          c: document.getElementById("inputC").value
-        })
+ <script>
+  function kirimData() {
+    fetch("https://script.google.com/macros/s/AKfycbwKnZdzxCqA4HEo4ShlpUlodxanRLCOdd3E7iSMkYMW7hOXMtr6m0fCKLOTu0EnkscMeg/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"  
+      },
+      body: JSON.stringify({
+        a: document.getElementById("inputA").value,
+        b: document.getElementById("inputB").value,
+        c: document.getElementById("inputC").value
       })
-      .then(res => res.text())
-      .then(res => document.getElementById("hasil").innerText = res)
-      .catch(err => document.getElementById("hasil").innerText = "❌ Error: " + err);
-    }
-  </script>
+    })
+    .then(res => res.text())
+    .then(res => document.getElementById("hasil").innerText = res)
+    .catch(err => document.getElementById("hasil").innerText = "❌ Error: " + err);
+  }
+</script>
+
 </body>
 </html>
+
 
 
